@@ -145,7 +145,8 @@ body {
   -moz-border-radius: 10px;
   -ms-border-radius: 10px;
   -o-border-radius: 10px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1)
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  width: 28%;
 }
 
 .signup-form label {
