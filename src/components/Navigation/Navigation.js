@@ -1,11 +1,11 @@
 import React from 'react';
 import Logo from '../Logo/Logo';
 
-const Navigation = ({ onRouteChange, isSignedIn }) => {
+const Navigation = ({ onRouteChange, isSignedIn, name, entries }) => {
         if(isSignedIn) {
             return (
                 <nav className="navigation">
-                    <Logo />
+                    <Logo name={name} entries={entries}/>
                     <p onClick={() => onRouteChange('signout')} className="f3 link dim white underline pointer">Sign out</p>
                 </nav>
             )

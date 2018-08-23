@@ -139,11 +139,16 @@ body {
 }
 
 .signup-form main {
-  background-color: white;
+  background: linear-gradient(to top, rgba(92, 37, 141, 0.6), rgba(67, 137, 162, 0.6));
   border-radius: 10px;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   -ms-border-radius: 10px;
   -o-border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1)
+}
+
+.signup-form label {
+  color: white;
 }
  

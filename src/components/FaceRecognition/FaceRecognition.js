@@ -1,20 +1,21 @@
 import React from 'react';
-
+import FaceBox from '../FaceBox/FaceBox';
 
 const FaceRecognition = ({ imageUrl, box }) => {
+    const faceBoxCoordinates = Object.values(box).map(faceBoxCoordinate => {
+        return <FaceBox
+                    top={faceBoxCoordinate.topRow}
+                    right={faceBoxCoordinate.rightCol}
+                    left={faceBoxCoordinate.leftCol}
+                    bottom={faceBoxCoordinate.bottomRow}
+                />
+    })
+    
     return (
         <div className="center-box">
             <div className="image-box">
                 <img id="inputImage" className="image" src={imageUrl} alt="" width="500px" height="auto" />
-                <div
-                    className="bounding-box"
-                    style={{
-                        top: box.topRow,
-                        right: box.rightCol,
-                        left: box.leftCol,
-                        bottom: box.bottomRow
-                    }}>
-                </div>
+                { faceBoxCoordinates }
             </div>
         </div>
     )

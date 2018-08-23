@@ -1,10 +1,10 @@
 import React from 'react';
 
 
-const Rank = ({}) => {
+const Rank = ({ name, entries }) => {
     return (
         <div className="result-message">
-            {"Hi Jawad, you've detected 5 faces"}
+            {`Hi ${name}, you've detected ${entries} ${entries > 1 || entries == 0 ? 'faces' : 'face'} so far`}
         </div>
     )
 }

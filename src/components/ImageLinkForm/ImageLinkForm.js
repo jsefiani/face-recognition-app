@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-const ImageLinkForm = ({onInputChange, onButtonSubmit }) => {
+const ImageLinkForm = ({onInputChange, onPictureSubmit }) => {
     return (
         <div className="link-form__box">
             <p className="link-form__title">
@@ -16,7 +16,7 @@ const ImageLinkForm = ({onInputChange, onButtonSubmit }) => {
                 />
                 <button 
                     className="link-form__button"
-                    onClick={onButtonSubmit}
+                    onClick={onPictureSubmit}
                 >Detect</button>
             </div>
         </div>
