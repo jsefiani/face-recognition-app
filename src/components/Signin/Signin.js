@@ -37,9 +37,9 @@ class Signin extends Component {
             if (user.id) {
                 this.props.loadUser(user);
                 this.props.onRouteChange("home");
-            }
+            } 
         })
-        .catch(err => console.log(err))
+        .catch(err => console.log(err, 'Error signing in'))
     }
 
     render() {
