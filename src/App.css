@@ -1,5 +1,7 @@
 body {
   font-family: sans-serif;
+  overflow-x: hidden;
+  height: 100vh;
 }
 
 .particles {
@@ -136,6 +138,7 @@ body {
 .signup-form {
   display: flex;
   justify-content: center;
+  margin: 20px 20px;
 }
 
 .signup-form main {
@@ -148,6 +151,27 @@ body {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   width: 28%;
 }
+
+.signup-form input {
+  border: 1px solid white;
+}
+
+.signup-form input:focus {
+  outline: black;
+}
+
+@media (max-width: 900px) {
+  .signup-form main {
+    width: 50%;
+  }
+}
+
+@media (max-width: 600px) {
+  .signup-form main {
+    width: 100%;
+  }
+}
+
 
 .signup-form label {
   color: white;
