@@ -32,23 +32,28 @@ class Register extends Component  {
 
     onSubmitChange = () => {
             if(this.state.email && this.state.name && this.state.password) {
-                fetch('https://immense-lowlands-48531.herokuapp.com/register', {
-                    method: 'post',
-                    headers: { 'Content-Type': 'application/json' },
+                fetch(
+                  "https://floating-taiga-13509.herokuapp.com/register",
+                  {
+                    method: "post",
+                    headers: {
+                      "Content-Type": "application/json"
+                    },
                     body: JSON.stringify({
-                        name: this.state.name,
-                        email: this.state.email,
-                        password: this.state.password,
+                      name: this.state.name,
+                      email: this.state.email,
+                      password: this.state.password
                     })
-                })
-                    .then(response => response.json())
-                    .then(user => {
-                        if (user) {
-                            console.log('Working')
-                            this.props.onRouteChange("home");
-                            this.props.loadUser(user);
-                        }
-                    })
+                  }
+                )
+                  .then(response => response.json())
+                  .then(user => {
+                    if (user) {
+                      console.log("Working");
+                      this.props.onRouteChange("home");
+                      this.props.loadUser(user);
+                    }
+                  });
             }   
     }
 

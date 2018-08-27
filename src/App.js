@@ -102,7 +102,7 @@ class App extends Component {
   // Clarifai API to detect faces
   onPictureSubmit = () => {
     this.setState({ imageUrl: this.state.input });
-      fetch('https://immense-lowlands-48531.herokuapp.com/imageurl', {
+    fetch('https://floating-taiga-13509.herokuapp.com/imageurl', {
         method: 'post',
         headers: {
           "Content-Type" : "application/json"
@@ -115,23 +115,28 @@ class App extends Component {
       .then(response => {
           if(response) {
             this.displayFaceBox(this.calculateFaceLocation(response)) 
-            fetch('https://immense-lowlands-48531.herokuapp.com/image', {
-              method: 'put',
-              headers: {
-                "Content-Type" : "application/json"
-              },
-              body: JSON.stringify({
-                id: this.state.user.id,
-                numberOfFaces: this.state.box.length
+            fetch(
+              "https://floating-taiga-13509.herokuapp.com/image",
+              {
+                method: "put",
+                headers: {
+                  "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                  id: this.state.user.id,
+                  numberOfFaces: this.state.box.length
+                })
+              }
+            )
+              .then(res => res.json())
+              .then(count => {
+                // Object assign allows us to just update the entries property
+                // instead of the whole object
+                this.setState(Object.assign(this.state.user, {
+                    entries: count
+                  }));
               })
-            })
-            .then(res => res.json())
-            .then(count => {
-              // Object assign allows us to just update the entries property 
-              // instead of the whole object
-              this.setState(Object.assign(this.state.user, { entries: count }))
-            })
-            .catch(err => console.log(err))
+              .catch(err => console.log(err));
           } 
           console.log(this.state.box.length)
         } 
